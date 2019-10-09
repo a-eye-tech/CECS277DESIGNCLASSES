@@ -1,5 +1,3 @@
-package DesignClasses;
-
 import java.util.Scanner;
 
 /**
@@ -33,9 +31,14 @@ public class DesignClassesDriver {
                 break;
             case "i":     // insert coins and displays money
                 printMoney(myVend, snackValue);
+                myVend.setCoins();
+                //myVend.getCoins();
+                myVend.printTotalCoinValue();
                 break;
             case "b":     // buy a snack with money
-                printMoney(myVend, snackValue);
+                System.out.println("Buy");
+                printSnacks(myVend, snackValue);
+                myVend.buy();
                 break;
             case "a":     // add +1 to a snack
                 System.out.println("Add Products");
@@ -43,7 +46,8 @@ public class DesignClassesDriver {
                 addToMachine( myVend, option, snackValue);
                 break;
             case "r":     // remove all money
-                System.out.println("");
+                System.out.println("Returning Coins");
+                myVend.setTotalCoinValueToZero();
                 break;
             case "q":     // exit program
                 option = "q";
@@ -114,8 +118,13 @@ public class DesignClassesDriver {
          String amount = in1.nextLine();
          
          for(valuables v : myVend.getVend().keySet()){
-             if(v.getName().toLowerCase().equals(lowerSnack))
+             //if(v.getName().toLowerCase().equals(lowerSnack)){
+             String firstChar = Character.toString(v.getName().toLowerCase().charAt(0));//Carlos
+             //if(v.getName().toLowerCase().equals(lowerSnack) ){
+             int coinStartValue = 5;//Carlos
+             if(firstChar.equals(lowerSnack) && v.getValue()<coinStartValue ){//Carlos
                 myVend.addQuantity(v, amount);
+             }
          }
      }
 }
