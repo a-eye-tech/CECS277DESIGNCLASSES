@@ -1,9 +1,16 @@
-package DesignClasses;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package designclassesdriver;
 
 /**
  *
  * @author Naveene Raya Carlos Alvarenga
  */
+import java.util.HashMap; //Carlos
+
 public enum valuables {
         //The value of the products
 	DIETPEPSI(0, 1.25, "Diet pepsi"), WATER(1, 1.0, "Water"), MARSBAR(2, 0.65, "Mars bar"), MANDMS(3, 0.65, "M&ms"), POPCORN(4, 1.5, "Popcorn"),
@@ -14,6 +21,7 @@ public enum valuables {
 	private final int value;
         private final double price;
         private final String name;
+         
         
         /**
          * Constructs the basics of what a product and money consists of
@@ -26,12 +34,18 @@ public enum valuables {
 		this.value = pValue;
                 this.price = pPrice;
                 this.name = pName;
+                
+
 	}
-	
+
+        //Carlos
+        public double getPrice(){return price;}
+        
 	/**
 	 * Retrieves designated number of the valuable
 	 * @return number of valuable
 	 */
+        
 	public int getValue () { return value; }
         
         /**
